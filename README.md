@@ -1,6 +1,6 @@
 # digital-voltmeter
 
-## Requirements:
+## Requirements
 
 ### Functional Requirements:
 - Measure DC voltage
