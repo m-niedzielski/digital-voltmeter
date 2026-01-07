@@ -1,0 +1,4 @@
+Test_ID,Vin_Measured_V,Vmid_Measured_V,Predicted_Vmid_With_Rseries_V,Error_Vmid_V,ADC_Count,Notes
+1,5.070,1.549,1.536,0.013,318,USB 5V source
+2,3.301,0.995,1.000,-0.005,204,3.3V source
+
