@@ -10,7 +10,7 @@ This document describes the high-level architecture of the microcontroller-based
 ## Block Descriptions
 
 ### Input Protection
-Limits current and voltage to protect the ADC input in case of overvoltage.
+Limits current and clamps voltage to protect the ADC input in case of overvoltage.
 
 ### Voltage Divider
 Scales the input voltage to within the ADC input range.
@@ -22,7 +22,7 @@ Reduces high-frequency noise and limits aliasing.
 Samples the conditioned analogue signal and converts it to a digital value.
 
 ### Firmware Processing
-Performs scaling, filtering and calibration.
+Performs scaling, digital filtering and calibration of ADC readings.
 
 ### Output Interface
 Displays the measured voltage via serial output or display.
