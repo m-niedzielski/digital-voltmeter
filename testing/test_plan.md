@@ -1,4 +1,4 @@
-# Divider Validation Test
+# Analogue Front-End Divider Validation Test
 ## Purpose
 The purpose of this test is to validate the analogue front-end of the digital voltmeter by verifying correct voltage scaling, linearity and basic accuracy prior to calibration.
 
@@ -27,10 +27,11 @@ The purpose of this test is to validate the analogue front-end of the digital vo
 ## Acceptance Criteria
 
 - Divider midpoint voltage should match predicted value within ±5%.
-- ADC readings should increase steadily with increasing input voltage.
+- ADC readings should increase monotonically with increasing input voltage.
 - No ADC saturation or clipping should occur within the 0–15 V input range.
 
 ## Results
 
-Test results are recorded in 'results_divider_test.csv'
+Test results are recorded in `results_divider_test.csv`
+
 Note: Predicted midpoint voltages should use the divider ratio including the 1 kΩ series protection resistor.
