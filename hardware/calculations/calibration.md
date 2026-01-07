@@ -8,14 +8,14 @@ The purpose of calibration is to reduce systematic measurement error caused by u
 Initial test results show that the measured ADC midpoint voltage is consistently lower than the predicted value. The error magnitude increased proportionally with the input voltage.
 This indicates a dominant gain error rather than a fixed offset error.
 
-## Calibration Model Selection
+##  Initial Calibration Hypothesis
 Given the proportional nature of the observed error, a single-point gain calibration model is sufficient:
 
 $$ V_{corrected} = V_{measured} * K $$
 
 where K is a calibration gain constant.
 
-## Determining The Gain Constant
+## Exploratory Gain Constant (Pre-model Correction)
 The gain constant is determined using a known reference voltages:
 
 $$ K = {V_{reference}\over V_{measured} } $$
@@ -36,17 +36,20 @@ $$ K_avg = {1.0334 + 1.0367 \over 2} = 1.0351 $$
 
 $$ K = 1.035 $$
 
+This gain-only calibration was not applied, as further investigation revealed the dominant error source to be an incomplete divider model rather than true system gain error.
+
+
 ## Model Correction
 
-Initial apparent gain error was largely caused by omitting the 1 kΩ series protection resistor from the divider model. After updating the divider equation to include Rseries, measured midpoint voltages closely match predictions.
+Further investigation showed that the apparent gain error was largely caused by omitting the 1 kΩ series protection resistor from the divider model. After updating the divider equation to include Rseries, measured midpoint voltages closely match predictions.
 
 A model-corrected validation dataset is provided in `testing/results_corrected_divider.csv`.
 
 At this stage, no additional gain calibration constant is applied. Remaining error is expected to be dominated by ADC reference uncertainty and component tolerances.
 
-## Two-Point Calibration 
+## Final Calibration Method: Two-Point Linear Model 
 
-Due to limited available test voltages, calibration for the corrected model was performed using a two-point linear model mapping ADC counts directly to input voltage.
+After correcting the divider model, a two-point linear calibration was selected as the final calibration method due to limited available reference voltage.
 
 $$ V_{in} = m*ADC + b $$
 
@@ -64,6 +67,6 @@ This model reduces dependence on the assumed ADC reference voltage and compensat
 
 With the two-point calibration applied, the computed input voltage closely matches DMM measurements at both available reference points. Remaining error is within a few millivolts, confirming correct end-to-end behaviour within the tested range.
 
-Verification results are recorded in`testing/results_calibration_accuracy.csv`.
+Verification results are recorded in `testing/results_calibration_accuracy.csv`.
 
 
