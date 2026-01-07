@@ -51,12 +51,12 @@ Due to limited available test voltages, calibration for the corrected model was 
 $$ V_{in} = m*ADC + b $$
 
 Reference points used:
-- Vin = 5.070 V at ADC = 318
-- Vin = 3.301 V at ADC = 204
+- Vin = 5.113 V at ADC = 307
+- Vin = 3.301 V at ADC = 198
 
 Computed calibration parameters:
-$$ m = {(5.070 - 3.301)\over (318-204)} = 0.1552 V/count $$
-$$ b = 5.070 - (m* 318) = 0.135 V $$
+$$ m = {(5.113 - 3.301)\over (307-198)} = 0.0166548 V/count $$
+$$ b = 5.113 - (m* 307) = 0.0082 V $$
 
 This model reduces dependence on the assumed ADC reference voltage and compensates for systematic gain/offset within the tested range.
 
