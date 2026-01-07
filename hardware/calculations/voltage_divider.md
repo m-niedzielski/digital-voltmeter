@@ -20,7 +20,7 @@ $$ {R2\over R1 + R2} ≤ {4.8\over 15} = 0.32 $$
 - Keeps source impedance ≤ 10kΩ
 - Minimises power dissipation
 
-The choice of resistors I will use are R1 = 22 kΩ and R2 = 10 kΩ (ratio = 0.3125). The resistor values were selected so that the ADC input voltage remains below 5 V at the maximum input voltage while also keeping below the source impedance outlined in the ATmega328P ADC specification. Common resistor values are used to simplify prototyping.
+The selected resistor values are R1 = 22 kΩ and R2 = 10 kΩ (ratio = 0.3125). The resistor values were selected so that the ADC input voltage remains below 5 V at the maximum input voltage while also keeping below the source impedance outlined in the ATmega328P ADC specification. Common resistor values are used to simplify prototyping.
 
 ### Checking Scaling:
 
@@ -60,10 +60,14 @@ This matches the resolution target of ≥ 10 mV.
 
 ## Effect of Series Resistor
 
-Rseries is in series with the voltage divider, therefore it is significant in calculations. The updated divider ratio to accomodate this is:
+Rseries is in series with the voltage divider, therefore it is significant in calculations. The updated divider ratio to accommodate this is:
 
 $$ V_{midpoint} = V_{in} * {R_2 \over R_{series} + R_1 + R_2 } $$
 
 $$ V_{in} = V_{midpoint} * {33k \over 10k} = V_{midpoint} * 3.3 $$
+
+Including Rseries slightly reduces the divider ratio compared to the ideal case, and this corrected model is used in subsequent calibration and firmware calculations.
+
+This divider design satisfies voltage, impedance, resolution and power constraints for the intended operating range.
 
 ​​​
