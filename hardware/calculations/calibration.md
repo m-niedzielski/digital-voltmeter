@@ -35,3 +35,11 @@ An average gain constant was selected:
 $$ K_avg = {1.0334 + 1.0367 \over 2} = 1.0351 $$
 
 $$ K = 1.035 $$
+
+## Model Correction
+
+Initial apparent gain error was largely caused by omitting the 1 kΩ series protection resistor from the divider model. After updating the divider equation to include Rseries, measured midpoint voltages closely match predictions.
+
+A model-corrected validation dataset is provided in `testing/results_corrected_divider.csv`.
+
+At this stage, no additional gain calibration constant is applied. Remaining error is expected to be dominated by ADC reference uncertainty and component tolerances.
