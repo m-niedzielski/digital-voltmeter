@@ -56,4 +56,14 @@ At the input:
 
 $$ LSB_{input} = {4.88\over 0.3125} ≈ 15.6mV $$
 
-This matches the resolution target of ≥ 10 mV.​​​
+This matches the resolution target of ≥ 10 mV.
+
+## Effect of Series Resistor
+
+Rseries is in series with the voltage divider, therefore it is significant in calculations. The updated divider ratio to accomodate this is:
+
+$$ V_{midpoint} = V_{in} * {R_2 \over R_{series} + R_1 + R_2 } $$
+
+$$ V_{in} = V_{midpoint} * {33k \over 10k} = V_{midpoint} * 3.3 $$
+
+​​​
