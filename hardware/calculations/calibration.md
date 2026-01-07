@@ -43,3 +43,20 @@ Initial apparent gain error was largely caused by omitting the 1 kΩ series prot
 A model-corrected validation dataset is provided in `testing/results_corrected_divider.csv`.
 
 At this stage, no additional gain calibration constant is applied. Remaining error is expected to be dominated by ADC reference uncertainty and component tolerances.
+
+## Two-Point Calibration 
+
+Due to limited available test voltages, calibration for the corrected model was performed using a two-point linear model mapping ADC counts directly to input voltage.
+
+$$ V_{in} = m*ADC + b $$
+
+Reference points used:
+- Vin = 5.070 V at ADC = 318
+- Vin = 3.301 V at ADC = 204
+
+Computed calibration parameters:
+$$ m = {(5.070 - 3.301)\over (318-204)} = 0.1552 V/count $$
+$$ b = 5.070 - (m* 318) = 0.135 V $$
+
+This model reduces dependence on the assumed ADC reference voltage and compensates for systematic gain/offset within the tested range.
+
