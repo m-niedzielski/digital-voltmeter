@@ -7,7 +7,7 @@ Filtering in the context of this project is useful for:
 - Reducing ADC reading jitter
 - Preventing aliasing when sampling
 
-We are measuring slowly changing DC voltages, impling that a high (kHz-range) bandwidth is not required.
+We are measuring slowly changing DC voltages, implying that a high (kHz-range) bandwidth is not required.
 
 ## Choosing The Update Rate & Sample Plan
 
@@ -19,8 +19,8 @@ This will be important for choosing a cutoff.
 ## Filter Placement
 
 The practical and effective placement for the capacitor is from the ADC input to GND, after the divider and after Rseries. 
-The effective resistance before the capacitor is the source impedance calculated in the input protection design: 7.9kΩ
-This resistance sets the RC cutoff.
+The effective resistance before the capacitor is the source impedance calculated in the input protection design: 7.9kΩ.
+This resistance sets the RC cutoff frequency.
 
 ## Choosing Capacitance Value & Cutoff Frequency
 
@@ -37,7 +37,7 @@ $$ f_{c} = {1\over 2π * 7.9k * 100n} ≈ 200 Hz $$
 This is a sensible cutoff since the displayed value at 5-10 Hz will be smooth, but the system will still respond quickly.
 
 ### Second Option
-If the readings are still jumpy, I will increase the capacitance to 470nF to achieve a cutoff of 40 Hz. 
+If readings remain unstable, the capacitance can be increased to 470nF to achieve a cutoff of 40 Hz. 
 This will be much smoother at the expense of a slightly slower response (3.7ms).
 
 ## Time Constant
@@ -51,4 +51,7 @@ The hardware filter won't feel sluggish at that time constant. Most of the smoot
 - Put the capacitor physically close to the ADC pin and GND
 - Use a ceramic capacitor
 - Connect directly to the ADC ground reference
+
+This filter provides adequate analogue noise suppression while preserving fast system response for DC measurements.
+
 
