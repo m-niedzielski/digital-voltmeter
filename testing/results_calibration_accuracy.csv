@@ -1,3 +1,3 @@
 Test_ID,Vin_Measured_V,ADC_Count,Vin_Computed_V,Error_V,Notes
-1,5.113,307,5.113,0.000,Calibration reference (session-specific)
-2,3.301,198,3.301,0.000,Calibration reference (session-specific)
+1,5.113,307,5.112,-0.001,2-point calibrated (session)
+2,3.301,198,3.300,-0.001,2-point calibrated (session)
