@@ -1,19 +1,20 @@
 # Calibration Implementation Notes
 
 ## Overview
-A single-point gain calibration is applied to the computed input voltage to correct systematic measurement error.
+A two-point linear calibration is applied to convert raw ADC counts directly to the input voltage. This approach compensates for ADC reference uncertainty and component tolerances within the tested operating range.
 
 ## Calibration Process
-1. Raw ADC count is converted to ADC voltage.
-2. ADC voltage is scaled to input voltage using divider ratio.
-3. A gain correction factor is applied.
+1. The raw ADC count is read from the analogue input.
+2. The input voltage is computed using a linear model:
+   
+   Vin = m · ADC + b
 
-## Calibration Constant
-The gain correction constant K is stored as a compile-time constant.
+3. The computed voltage is output via the serial interface.
 
-The gain correction constant was determined experimentally using two reference voltages and averaged to K = 1.035.
+## Calibration Constants
+The calibration constants m and b are stored as compile-time constants in firmware.
 
-Future versions may store this value in non-volatile memory to allow recalibration without recompilation.
+These constants were derived experimentally using two DMM-measured reference voltages and their corresponding ADC readings, as documented in `hardware/calculations/calibration.md`.
 
 ## Rationale
-A gain-only calibration was selected due to the observed proportional error behaviour and the absence of a significant offset error.
+A two-point linear calibration was selected due to limited available reference voltages and observed session-to-session variation in ADC reference voltage. This method provides accurate end-to-end voltage measurement without relying on an assumed fixed ADC reference.
