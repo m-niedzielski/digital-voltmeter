@@ -60,3 +60,8 @@ $$ b = 5.070 - (m* 318) = 0.135 V $$
 
 This model reduces dependence on the assumed ADC reference voltage and compensates for systematic gain/offset within the tested range.
 
+## Calibration Verification
+
+With the two-point calibration applied, the computed input voltage closely matches DMM measurements at both available reference points. Remaining error is within a few millivolts, confirming correct end-to-end behaviour within the tested range.
+
+
