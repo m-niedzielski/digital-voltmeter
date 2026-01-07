@@ -32,4 +32,4 @@ The purpose of this test is to validate the analogue front-end of the digital vo
 
 ## Results
 
-Test results are recorded in 'results.csv'
+Test results are recorded in 'results_divider_test.csv'
