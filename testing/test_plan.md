@@ -33,3 +33,4 @@ The purpose of this test is to validate the analogue front-end of the digital vo
 ## Results
 
 Test results are recorded in 'results_divider_test.csv'
+Note: Predicted midpoint voltages should use the divider ratio including the 1 kΩ series protection resistor.
